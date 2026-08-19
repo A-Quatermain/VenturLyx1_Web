@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: "IBM Plex Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+    :root {
+        --background: 60 6% 96%;
+        --foreground: 0 0% 4%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 4%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 4%;
+        --primary: 222 100% 50%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 60 3% 92%;
+        --secondary-foreground: 0 0% 9%;
+        --muted: 60 3% 92%;
+        --muted-foreground: 0 0% 36%;
+        --accent: 60 3% 90%;
+        --accent-foreground: 0 0% 9%;
+        --destructive: 3 100% 59%;
+        --destructive-foreground: 0 0% 100%;
+        --success: 145 100% 39%;
+        --success-foreground: 0 0% 100%;
+        --border: 0 0% 87%;
+        --input: 0 0% 87%;
+        --ring: 222 100% 50%;
+        --chart-1: 222 100% 50%;
+        --chart-2: 145 100% 39%;
+        --chart-3: 3 100% 59%;
+        --chart-4: 0 0% 20%;
+        --chart-5: 40 90% 55%;
+        --radius: 0px;
+    }
+    .dark {
+        --background: 0 0% 2%;
+        --foreground: 0 0% 95%;
+        --card: 0 0% 4%;
+        --card-foreground: 0 0% 95%;
+        --popover: 0 0% 5%;
+        --popover-foreground: 0 0% 95%;
+        --primary: 222 100% 55%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 0 0% 10%;
+        --secondary-foreground: 0 0% 95%;
+        --muted: 0 0% 10%;
+        --muted-foreground: 0 0% 64%;
+        --accent: 0 0% 12%;
+        --accent-foreground: 0 0% 95%;
+        --destructive: 4 100% 62%;
+        --destructive-foreground: 0 0% 100%;
+        --success: 145 68% 52%;
+        --success-foreground: 0 0% 0%;
+        --border: 0 0% 18%;
+        --input: 0 0% 18%;
+        --ring: 222 100% 55%;
+        --chart-1: 222 100% 60%;
+        --chart-2: 145 68% 52%;
+        --chart-3: 4 100% 62%;
+        --chart-4: 0 0% 80%;
+        --chart-5: 40 90% 60%;
+    }
+}
+
+@layer base {
+    * { @apply border-border; }
+    body { @apply bg-background text-foreground; }
+    h1, h2, h3, h4 { font-family: "Chivo", sans-serif; }
+    ::selection { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
+}
+
+.font-mono { font-family: "JetBrains Mono", monospace; }
+
+.label-mono {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: hsl(var(--muted-foreground));
+}
+
+/* Grid border skeleton */
+.grid-border { border: 1px solid hsl(var(--border)); }
+
+.hard-shadow { box-shadow: 4px 4px 0px hsl(var(--foreground)); }
+.hard-shadow-hover { transition: transform 0.12s ease, box-shadow 0.12s ease; }
+.hard-shadow-hover:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0px hsl(var(--foreground)); }
+
+.lift-hover { transition: transform 0.15s ease, border-color 0.15s ease; }
+.lift-hover:hover { transform: translateY(-3px); border-color: hsl(var(--foreground)); }
+
+.glass-header {
+    backdrop-filter: blur(20px);
+    background: hsl(var(--background) / 0.82);
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.dot-grid {
+    background-image: radial-gradient(hsl(var(--border)) 1px, transparent 1px);
+    background-size: 22px 22px;
+}
+
+.terminal-cursor::after {
+    content: "▊";
+    margin-left: 1px;
+    animation: blink 1s step-end infinite;
+    color: hsl(var(--primary));
+}
+
+@layer base {
+    [data-debug-wrapper="true"] { display: contents !important; }
+}
